@@ -19,7 +19,7 @@ async function GetOnlinePort()
     return online_proxies_port;
 }
 
-api.get('/GetProxyStatus', async (req, res)=>{
+api.get('/GetOnlinePort', async (req, res)=>{
     let port = await GetOnlinePort();
     res.send(port.toString());
 })
