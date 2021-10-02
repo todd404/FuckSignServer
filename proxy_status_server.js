@@ -7,7 +7,7 @@ var api = express.Router();
 async function getProxyStatus()
 {
     let frp_status = await axios.get("http://127.0.0.1:7500/api/proxy/tcp")
-    console.log(frp_status.data)
+    console.log(frp_status.data.proxies)
 }
 
 api.get('/GetProxyStatus', async (req, res)=>{
