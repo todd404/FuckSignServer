@@ -15,6 +15,7 @@ async function GetOnlinePort()
         }
     }
 
+    console.log(online_proxies_port);
     return online_proxies_port;
 }
 
@@ -24,4 +25,4 @@ api.get('/GetProxyStatus', async (req, res)=>{
 })
 
 app.use("/api", api);
-app.listen(3001, ()=>{console.log("listening..."); console.log(await GetOnlinePort())})
+app.listen(3001, ()=>{console.log("listening..."); GetOnlinePort()})
