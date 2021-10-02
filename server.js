@@ -1,6 +1,6 @@
 const ObjectId = require('mongodb').ObjectId;
 var MongoClient = require('mongodb').MongoClient
-var url = "mongodb://localhost"
+var url = "mongodb://localhost:2333"
 var mongo;
 
 const express = require('express');
@@ -29,7 +29,7 @@ async function getNewPort()
     }
     let db = mongo.db("fksign");
     let where = {
-        "_id": ObjectId("607f98048f4c06c5a6561c6b")
+        "_id": ObjectId("6154837ec953e9b6369f9a73")
     }
     
     async function queryPort()
