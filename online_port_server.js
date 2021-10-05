@@ -7,7 +7,12 @@ var api = express.Router();
 async function GetOnlinePort()
 {
     let online_proxies_port = new Array;
-    let frp_status = await axios.get("http://127.0.0.1:7500/api/proxy/tcp")
+    let frp_status;
+    try{
+        frp_status = await axios.get("http://127.0.0.1:7500/api/proxy/tcp");
+    }catch{
+        console.log("Get Frp Online Port Error");
+    }
     let proxies = frp_status.data.proxies;
     for(p of proxies){
         if(p.status === "online"){
