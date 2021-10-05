@@ -27,7 +27,7 @@ async function GetOnlinePort()
 
 api.get('/GetOnlinePort', async (req, res)=>{
     let port = await GetOnlinePort();
-    res.send(port);
+    res.send({'online_port': port});
 })
 
 app.use("/api", api);
