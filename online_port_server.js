@@ -12,6 +12,7 @@ async function GetOnlinePort()
         frp_status = await axios.get("http://127.0.0.1:7500/api/proxy/tcp");
     }catch{
         console.log("Get Frp Online Port Error");
+        exit();
     }
     let proxies = frp_status.data.proxies;
     for(p of proxies){
@@ -26,7 +27,7 @@ async function GetOnlinePort()
 
 api.get('/GetOnlinePort', async (req, res)=>{
     let port = await GetOnlinePort();
-    res.send({'online_port': port});
+    res.send(port);
 })
 
 app.use("/api", api);
