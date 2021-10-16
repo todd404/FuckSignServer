@@ -3,6 +3,7 @@ const axios = require('axios');
 
 var app = express();
 var api = express.Router();
+var file = express.Router();
 
 async function GetOnlinePort()
 {
@@ -30,5 +31,26 @@ api.get('/GetOnlinePort', async (req, res)=>{
     res.send({'online_port': port});
 })
 
+file.get('/file/:name', function (req, res, next) {
+    var options = {
+      root: path.join(__dirname, 'public'),
+      dotfiles: 'deny',
+      headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+      }
+    }
+  
+    var fileName = req.params.name
+    res.sendFile(fileName, options, function (err) {
+      if (err) {
+        next(err)
+      } else {
+        console.log('Sent:', fileName)
+      }
+    })
+  })
+
 app.use("/api", api);
+app.use("/", file);
 app.listen(3001, ()=>{console.log("listening..."); GetOnlinePort()})
