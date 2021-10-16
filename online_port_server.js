@@ -35,7 +35,7 @@ api.get('/GetOnlinePort', async (req, res)=>{
 })
 
 api.get('/GetLatestLuaHash', (req, res)=>{
-    let stream = fs.createReadStream("./publick/test.lua");
+    let stream = fs.createReadStream("./public/test.lua");
     let fsHash = crypto.createHash('md5');
     stream.on('data', function(d){
         fsHash.update(d);
@@ -44,7 +44,7 @@ api.get('/GetLatestLuaHash', (req, res)=>{
     stream.on('end', ()=>{
         var md5 = fsHash.digest('hex');
         res.send(md5);
-    })
+    });
 })
 
 file.get('/file/:name', function (req, res, next) {
