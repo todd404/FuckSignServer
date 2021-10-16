@@ -1,6 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
+const crypto = require('crypto');
+const fs = require('fs');
 
 var app = express();
 var api = express.Router();
@@ -30,6 +32,19 @@ async function GetOnlinePort()
 api.get('/GetOnlinePort', async (req, res)=>{
     let port = await GetOnlinePort();
     res.send({'online_port': port});
+})
+
+api.get('/GetLatestLuaHash', (req, res)=>{
+    let stream = fs.createReadStream("./publick/test.lua");
+    let fsHash = crypto.createHash('md5');
+    stream.on('data', function(d){
+        fsHash.update(d);
+    });
+
+    stream.on('end', ()=>{
+        var md5 = fsHash.digest('hex');
+        res.send(md5);
+    })
 })
 
 file.get('/file/:name', function (req, res, next) {
