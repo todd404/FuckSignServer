@@ -2,7 +2,7 @@ var log4js = require('log4js');
 log4js.configure({
   appenders: {
     console:{ type: 'console' },
-    errorLogs:{ type: 'file', filename: './error.log', category: 'error' }
+    errorLogs:{ type: 'file', filename: './logs/error.log'}
   },
      categories: {
 
