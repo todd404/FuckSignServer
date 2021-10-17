@@ -51,6 +51,7 @@ api.get('/GetLatestLuaHash', (req, res)=>{
 
 api.post('/Log', (req, res)=>{
   logger.log(req.body);
+  console.log(req.body);
   res.send("succsess");
 })
 
