@@ -3,6 +3,7 @@ const axios = require('axios');
 const path = require('path');
 const crypto = require('crypto');
 const fs = require('fs');
+const logger = require("./logs/logger");
 
 var app = express();
 var api = express.Router();
@@ -25,7 +26,6 @@ async function GetOnlinePort()
         }
     }
 
-    console.log(online_proxies_port);
     return online_proxies_port;
 }
 
@@ -45,6 +45,11 @@ api.get('/GetLatestLuaHash', (req, res)=>{
         var md5 = fsHash.digest('hex');
         res.send(md5);
     });
+})
+
+api.post('Log', (req, res)=>{
+  console.log(req.body);
+  res.send("sussus");
 })
 
 file.get('/file/:name', function (req, res, next) {
@@ -69,4 +74,4 @@ file.get('/file/:name', function (req, res, next) {
 
 app.use("/api", api);
 app.use("/", file);
-app.listen(3001, ()=>{console.log("listening..."); GetOnlinePort()})
+app.listen(3001, ()=>{console.log("listening...");})
