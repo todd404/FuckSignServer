@@ -48,8 +48,8 @@ api.get('/GetLatestLuaHash', (req, res)=>{
 })
 
 api.post('/Log', (req, res)=>{
-  console.log(req.body);
-  res.send("sussus");
+  console.log(req);
+  res.send("succsess");
 })
 
 file.get('/file/:name', function (req, res, next) {
