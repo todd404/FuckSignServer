@@ -10,6 +10,6 @@ log4js.configure({
 
     }
 });
-var logger = log4js.getLogger('error');
+var logger = log4js.getLogger('default');
 
 module.exports = logger;
