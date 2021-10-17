@@ -6,6 +6,8 @@ const fs = require('fs');
 const logger = require("./logs/logger");
 
 var app = express();
+app.use(express.text()) // for parsing application/text
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 var api = express.Router();
 var file = express.Router();
 
@@ -48,7 +50,7 @@ api.get('/GetLatestLuaHash', (req, res)=>{
 })
 
 api.post('/Log', (req, res)=>{
-  console.log(req);
+  console.log(req.body);
   res.send("succsess");
 })
 
