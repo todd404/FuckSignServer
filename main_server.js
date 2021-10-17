@@ -47,7 +47,7 @@ api.get('/GetLatestLuaHash', (req, res)=>{
     });
 })
 
-api.post('Log', (req, res)=>{
+api.post('/Log', (req, res)=>{
   console.log(req.body);
   res.send("sussus");
 })
