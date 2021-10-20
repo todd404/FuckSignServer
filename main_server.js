@@ -78,7 +78,7 @@ async function GetClassRoomIdByCourseId(courseId)
     }
   });
 
-  let response = await request();
+  let response = await request;
   return response;
 }
 
