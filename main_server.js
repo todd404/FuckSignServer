@@ -74,15 +74,12 @@ async function GetClassRoomIdByCourseId(courseId)
       "csrfTimestamp": timeStamp,
       "csrfToken": crsfToken,
       "loginUserTime": loginUserTime
-    }
+    },
+    timeOut: 3000
   });
 
-  console.log(`https://wa.gdupt.edu.cn:8080/arrangeCourseInfo/${courseId}/queryByCourseCode?_t=${timeStamp}`);
-  console.log(timeStamp);
-  console.log(crsfToken);
-  console.log(loginUserTime);
-
   let response = await request;
+  console.log(request);
   return response;
 }
 
