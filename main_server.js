@@ -65,7 +65,6 @@ async function GetClassRoomIdByCourseId(courseId)
   
   let crsfToken = md5("timestamp=" + timeStamp + ",key=" + "lianyi2019");
   let loginUserTime = md5("qweasd" + initTimeshift());
-  console.log(loginUserTime);
   
   let request = axios({
     method: 'GET',
@@ -77,6 +76,11 @@ async function GetClassRoomIdByCourseId(courseId)
       "loginUserTime": loginUserTime
     }
   });
+
+  console.log(`https://wa.gdupt.edu.cn:8080/arrangeCourseInfo/${courseId}/queryByCourseCode?_t=${timeStamp}`);
+  console.log(timeStamp);
+  console.log(crsfToken);
+  console.log(loginUserTime);
 
   let response = await request;
   return response;
