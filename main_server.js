@@ -3,6 +3,7 @@ const axios = require('axios');
 const path = require('path');
 const crypto = require('crypto');
 const fs = require('fs');
+const md5 = require('md5');
 const logger = require("./logs/logger");
 
 var app = express();
@@ -61,13 +62,10 @@ function initTimeshift()
 async function GetClassRoomIdByCourseId(courseId)
 {
   let timeStamp = new Date().getTime();
-  let md5Hash = crypto.createHash('md5');
-
-  md5Hash.update("timestamp=" + timeStamp + ",key=" + "lianyi2019");
-  let crsfToken = md5Hash.digest('hex');
-
-  md5Hash.update("qweasd" + initTimeshift());
-  let loginUserTime = md5Hash.digest('hex');
+  
+  let crsfToken = md5("timestamp=" + timeStamp + ",key=" + "lianyi2019");
+  let loginUserTime = md5("qweasd" + initTimeshift());
+  console.log(loginUserTime);
   
   let request = axios({
     method: 'GET',
