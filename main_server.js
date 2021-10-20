@@ -49,6 +49,47 @@ api.get('/GetLatestLuaHash', (req, res)=>{
     });
 })
 
+function initTimeshift() 
+{
+    var dCurrent = new Date;
+    var month = "" + (dCurrent.getMonth() + 1);
+    var date = "" + dCurrent.getDate();
+    var year = dCurrent.getFullYear();
+    return month.length < 2 && (month = "0" + month), date.length < 2 && (date = "0" + date), [year, month, date].join("-");
+}
+
+async function GetClassRoomIdByCourseId(courseId)
+{
+  let timeStamp = new Date().getTime();
+  let md5Hash = crypto.createHash('md5');
+
+  md5Hash.update("timestamp=" + timeStamp + ",key=" + "lianyi2019");
+  let crsfToken = md5Hash.digest('hex');
+
+  md5Hash.update("qweasd" + initTimeshift());
+  let loginUserTime = md5Hash.digest('hex');
+  
+  let request = axios({
+    method: 'GET',
+    url: `https://wa.gdupt.edu.cn:8080/arrangeCourseInfo/${courseId}/queryByCourseCode?_t=${timeStamp}`,
+    headers:{
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      "csrfTimestamp": timeStamp,
+      "csrfToken": crsfToken,
+      "loginUserTime": loginUserTime
+    }
+  });
+
+  let response = await request();
+  return response;
+}
+
+api.post('/GetClassRoomId', async (req, res)=>{
+  let courseId = req.body.courseId;
+  let classRoomId = await GetClassRoomIdByCourseId(courseId);
+  res.send(classRoomId);
+})
+
 api.post('/Log', (req, res)=>{
   logger.info(req.body);
   res.send("succsess");
