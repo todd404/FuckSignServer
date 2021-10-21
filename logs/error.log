@@ -1,0 +1,14 @@
+[2021-10-17T11:22:09.571] [INFO] default - test
+[2021-10-17T13:10:22.214] [INFO] default - DownloadFile() error, 未能找到路径“D:\baidu”的一部分。
+[2021-10-17T13:24:46.055] [INFO] default - DownloadFile() error, 在 WebClient 请求期间发生异常。
+[2021-10-18T02:19:18.915] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-18T10:24:11.121] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-18T11:10:02.091] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-18T11:10:02.294] [INFO] default - socks1218 DownloadFile() error, 在 WebClient 请求期间发生异常。
+[2021-10-18T11:48:09.748] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-18T23:39:53.632] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-19T01:44:55.427] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-19T06:22:14.831] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-19T23:51:27.740] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-20T06:21:36.430] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-20T11:21:51.090] [INFO] default - socks1218 UpdateLua() error, 操作超时
