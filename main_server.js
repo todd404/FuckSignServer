@@ -79,8 +79,8 @@ async function GetClassRoomIdByCourseId(courseId)
   });
 
   let response = await request;
-  console.log(response);
-  return response;
+  let classRoomId = response.data.data.arrangeCourseInfo.classroomCode;
+  return classRoomId;
 }
 
 api.post('/GetClassRoomId', async (req, res)=>{
