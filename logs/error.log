@@ -12,3 +12,8 @@
 [2021-10-19T23:51:27.740] [INFO] default - socks1218 UpdateLua() error, 操作超时
 [2021-10-20T06:21:36.430] [INFO] default - socks1218 UpdateLua() error, 操作超时
 [2021-10-20T11:21:51.090] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-20T23:49:39.337] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-21T01:44:24.467] [INFO] default - socks1220 UpdateLua() error, 无法解析此远程名称: 'frp.7066.site'
+[2021-10-21T01:46:09.733] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-21T06:25:08.842] [INFO] default - socks1218 UpdateLua() error, 操作超时
+[2021-10-21T10:32:49.002] [INFO] default - socks1218 UpdateLua() error, 操作超时
